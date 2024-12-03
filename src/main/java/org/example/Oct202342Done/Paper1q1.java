@@ -1,4 +1,4 @@
-package org.example.Oct202342;
+package org.example.Oct202342Done;
 
 import java.util.Scanner;
 import java.io.IOException;
