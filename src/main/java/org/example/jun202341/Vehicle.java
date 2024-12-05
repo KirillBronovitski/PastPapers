@@ -1,18 +1,24 @@
 package org.example.jun202341;
 
 public class Vehicle {
+
     private String ID;
     private int MaxSpeed;
     private int CurrentSpeed;
     private int IncreaseAmount;
     private int HorizontalPosition;
 
-    public void Constructor(String id, int maximumSpeed, int increaseAmount) {
-        ID = id;
-        MaxSpeed = maximumSpeed;
-        IncreaseAmount = increaseAmount;
+
+    public Vehicle(String ID, int MaxSpeed, int IncreaseAmount) {
+        this.ID = ID;
+        this.MaxSpeed = MaxSpeed;
+        this.IncreaseAmount = IncreaseAmount;
         CurrentSpeed = 0;
         HorizontalPosition = 0;
+    }
+
+    public int GetMaxSpeed(){
+        return MaxSpeed;
     }
 
     public int GetCurrentSpeed() {
@@ -23,27 +29,29 @@ public class Vehicle {
         return IncreaseAmount;
     }
 
-    public int GetMaxSpeed() {
-        return MaxSpeed;
-    }
-
-    public int getHorizontalPosition() {
+    public int GetHorizontalPosition() {
         return HorizontalPosition;
     }
 
-    public void SetHorizontalPosition(int horizontalPosition) {
-        HorizontalPosition = horizontalPosition;
+    public void SetCurrentSpeed(int CurrentSpeed) {
+        this.CurrentSpeed = CurrentSpeed;
     }
 
-    public void SetCurrentSpeed(int currentSpeed) {
-        CurrentSpeed = currentSpeed;
+    public void SetHorizontalPosition(int HorizontalPosition) {
+        this.HorizontalPosition = HorizontalPosition;
     }
 
     public void IncreaseSpeed() {
-        if (CurrentSpeed <= MaxSpeed) {
-            CurrentSpeed = CurrentSpeed + IncreaseAmount;
-            HorizontalPosition = HorizontalPosition + CurrentSpeed;
+        CurrentSpeed = CurrentSpeed + IncreaseAmount;
+        if (CurrentSpeed > MaxSpeed) {
+            throw new IllegalArgumentException();
         }
+        HorizontalPosition = HorizontalPosition + CurrentSpeed;
+    }
+
+    public void outputPosition() {
+        System.out.println("Horizontal position: " + HorizontalPosition);
+        System.out.println("Current speed: " + CurrentSpeed);
     }
 
 }
