@@ -1,4 +1,4 @@
-package org.example.jun202241;
+package org.example.jun202241Done;
 import java.util.Scanner;
 public class Paper6q3 {
     static String[] QueueArray = new String[10];
