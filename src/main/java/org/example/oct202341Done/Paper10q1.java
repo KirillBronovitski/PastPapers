@@ -1,15 +1,15 @@
-package org.example.oct202341;
+package org.example.oct202341Done;
 
 public class Paper10q1 {
 
     public static void main(String[] args) {
-        System.out.println(IterativeVowels("house"));
-        System.out.println(RecursiveVowels("imagine"));
+        System.out.println("Number of vowels in word \"house\": " + IterativeVowels("house"));
+        System.out.println("Number of vowels in word \"imagine\": " + RecursiveVowels("imagine"));
     }
 
     public static int IterativeVowels(String Value) {
-        int Total;
-        int LengthString;
+        Integer Total;
+        Integer LengthString;
         char FirstCharacter;
         Total = 0;
         LengthString = Value.length();
@@ -24,24 +24,25 @@ public class Paper10q1 {
     }
 
     public static int RecursiveVowels(String Value) {
-        int Total = 0;
-        int LengthString;
+        Integer Total;
+        Integer LengthString;
         char FirstCharacter;
         LengthString = Value.length();
         FirstCharacter = Value.substring(0, 1).charAt(0);
-        if (LengthString == 1) {
-            if (FirstCharacter == 'a' || FirstCharacter == 'e' || FirstCharacter == 'i' || FirstCharacter == 'o' || FirstCharacter == 'u') {
+        if (FirstCharacter == 'a' || FirstCharacter == 'e' || FirstCharacter == 'i' || FirstCharacter == 'o' || FirstCharacter == 'u') {
+            if (LengthString == 1) {
                 Total = 1;
-            }
-        } else {
-            if (FirstCharacter == 'a' || FirstCharacter == 'e' || FirstCharacter == 'i' || FirstCharacter == 'o' || FirstCharacter == 'u') {
-                Total = 1 + RecursiveVowels(Value.substring(1));
             } else {
-                Total = RecursiveVowels(Value.substring(1));
+                Total = 1 + RecursiveVowels(Value.substring(1));
+            }
+        }  else {
+            if (LengthString == 1) {
+                Total = 0;
+            } else {
+                Total = RecursiveVowels(Value.substring(1));;
             }
         }
         return Total;
     }
-
 
 }
